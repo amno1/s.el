@@ -55,9 +55,6 @@ body:
       description: What version of Emacs are you seeing the problem on?
       multiple: true
       options:
-        - 24.1
-        - 24.2
-        - 24.3
         - 24.4
         - 24.5
         - 25.1

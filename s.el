@@ -28,7 +28,6 @@
 
 ;; A.M. personal changes:
 
-;; Require Emacs 24.4 (string-trim)
 ;; Inline functions where possible
 ;; Stylistic change in s--mapcar-head: if -> when
 
