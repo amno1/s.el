@@ -42,19 +42,22 @@
   "Remove whitespace at the beginning of S."
   (declare (pure t) (side-effect-free t))
   (save-match-data
-    (string-trim s nil "")))
+    (if (string-match "\\`[ \t\n\r]+" s)
+        (replace-match "" t t s)
+      s)))
 
 (defsubst s-trim-right (s)
   "Remove whitespace at the end of S."
   (declare (pure t) (side-effect-free t))
   (save-match-data
-    (string-trim s "")))
+    (if (string-match "[ \t\n\r]+\\'" s)
+        (replace-match "" t t s)
+      s)))
 
-(defsubst s-trim (s)
+(defun s-trim (s)
   "Remove whitespace at the beginning and end of S."
   (declare (pure t) (side-effect-free t))
-  (save-match-data
-    (string-trim s)))
+  (s-trim-left (s-trim-right s)))
 
 (defsubst s-collapse-whitespace (s)
   "Convert all adjacent whitespace characters to a single space."
